@@ -10,12 +10,11 @@ public class Movement : MonoBehaviour
     public int speed = 10;
     [SerializeField] float maxScreenX;
     [SerializeField] float maxScreenY;
-    [SerializeField] float maxRotateX;
-    [SerializeField] float maxRotateY;
     [SerializeField] float pitchFactor;
     [SerializeField] float YawPositionFactor;
     [SerializeField] float pitchPositionFactor;
     [SerializeField] float rollPositionFactor;
+    [SerializeField] GameObject[] laser;
 
     float inputX, inputY;
     // Start is called before the first frame update
@@ -28,6 +27,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         //movement();
+        ProgressFiring();
     }
 
     private void FixedUpdate()
@@ -61,6 +61,32 @@ public class Movement : MonoBehaviour
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 
+    void ProgressFiring()
+    {
+            if (Input.GetButton("Fire1"))
+            {
+                ActiveShotting();
+                print("Shooting");
+            }
+            else
+            {
+            DeactiveShotting();
+                print("Stop Shooting");
+            }
+    }
 
+    void ActiveShotting() {
+        foreach (var item in laser)
+        {
+            item.GetComponent<ParticleSystem>().enableEmission = true;
+        }
+    }
 
+    void DeactiveShotting()
+    {
+        foreach (var item in laser)
+        {
+            item.GetComponent<ParticleSystem>().enableEmission = false;
+        }
+    }
 }

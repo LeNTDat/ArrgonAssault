@@ -6,34 +6,31 @@ using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
-
-    public int speed = 10;
-    [SerializeField] float maxScreenX;
-    [SerializeField] float maxScreenY;
-    [SerializeField] float pitchFactor;
-    [SerializeField] float YawPositionFactor;
-    [SerializeField] float pitchPositionFactor;
-    [SerializeField] float rollPositionFactor;
-    [SerializeField] GameObject[] laser;
+    [Header("General settings")]
+    [Tooltip("Speed of the ship")]public int speed = 10;
+    [Tooltip("Max X range the ship can fly")][SerializeField] float maxScreenX;
+    [Tooltip("Max Y range the ship can fly")][SerializeField] float maxScreenY;
+    [Tooltip("How high ship reach")][SerializeField] float pitchFactor;
+    [Tooltip("Speed of the ship")][SerializeField] float YawPositionFactor;
+    [Tooltip("Speed of the ship")][SerializeField] float pitchPositionFactor;
+    [Tooltip("Speed of the ship")][SerializeField] float rollPositionFactor;
+    [Tooltip("The arrays of lasers appear on ship")][SerializeField] GameObject[] laser;
 
     float inputX, inputY;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        //movement();
-        ProgressFiring();
+        if (!GameManager.instance.isgameOver)
+        {
+            ProgressFiring();
+            ProgressMovement();
+            ProgressRotation();
+        }
     }
 
     private void FixedUpdate()
     {
-        ProgressMovement();
-        ProgressRotation();
     }
 
     void ProgressMovement()
@@ -65,28 +62,19 @@ public class Movement : MonoBehaviour
     {
             if (Input.GetButton("Fire1"))
             {
-                ActiveShotting();
-                print("Shooting");
+                ActiveShotting(true);
             }
             else
             {
-            DeactiveShotting();
-                print("Stop Shooting");
+                ActiveShotting(false);
             }
     }
 
-    void ActiveShotting() {
+    void ActiveShotting(bool isActive) {
         foreach (var item in laser)
         {
-            item.GetComponent<ParticleSystem>().enableEmission = true;
-        }
-    }
-
-    void DeactiveShotting()
-    {
-        foreach (var item in laser)
-        {
-            item.GetComponent<ParticleSystem>().enableEmission = false;
+           var emission = item.GetComponent<ParticleSystem>().emission;
+            emission.enabled = isActive;
         }
     }
 }

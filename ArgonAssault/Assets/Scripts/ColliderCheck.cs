@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Android;
 
 public class ColliderCheck : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
-    {
-        print(this.name + "is explose");
-    }
+    [SerializeField] GameObject ShipExlode;
 
     private void OnTriggerEnter(Collider other)
     {
+        gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+        ShipExlode.GetComponent<ParticleSystem>().Play();
         GameManager.instance.GameOver();
-        print("Here");
     }
 }

@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
     [Tooltip("The arrays of lasers appear on ship")][SerializeField] GameObject[] laser;
 
     float inputX, inputY;
-
+  
     // Update is called once per frame
     void Update()
     {

@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public bool isStart = false;
     public bool isgameOver = false;
+    float loadDelay = 1.3f;
 
-    PlayableDirector play;
 
     public static GameManager instance;
 
@@ -23,7 +24,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        play = GameObject.Find("Master Timeline").GetComponent<PlayableDirector>();
     }
 
     // Update is called once per frame
@@ -32,8 +32,13 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void reStartLevel()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void GameOver() {
         isgameOver = true;
-        play.Stop();
+        Invoke("reStartLevel", loadDelay);
     }
 }

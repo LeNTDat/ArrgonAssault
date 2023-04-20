@@ -6,7 +6,6 @@ public class Enemy : MonoBehaviour
 {
     private void OnParticleCollision(GameObject other)
     {
-        print(this.name + "is Explode");
         Destroy(this.gameObject);
     }
 }

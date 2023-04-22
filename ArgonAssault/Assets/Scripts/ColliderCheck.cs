@@ -3,13 +3,19 @@ using UnityEngine;
 public class ColliderCheck : MonoBehaviour
 {
     [SerializeField] ParticleSystem ShipExlode;
-    [SerializeField] int ShipHitPoint = 50;
+    [SerializeField] int ShipHitPoint = 5;
     [SerializeField] int ShipScore = 20;
 
     private void OnTriggerEnter(Collider other)
     {
         ExplodeShip();
-        CountHitPointExplode(other);
+        print(other.tag);
+        Enemy enemy = other.GetComponent<Enemy>();
+        enemy.ProcessHit(ShipScore);
+        if ((enemy.HitPoint - ShipHitPoint) <= 0)
+        {
+            enemy.DestroyEnemy();
+        }
     }
 
     void ExplodeShip()
@@ -24,14 +30,5 @@ public class ColliderCheck : MonoBehaviour
         }
         ShipExlode.GetComponent<ParticleSystem>().Play();
         GameManager.instance.GameOver();
-    }
-
-    void CountHitPointExplode(Collider other) {
-        Enemy enemy = other.GetComponent<Enemy>();
-        enemy.ProcessHit(ShipScore, ShipHitPoint);
-        if (enemy.HitPoint <= 0)
-        {
-            enemy.DestroyEnemy();
-        }
     }
 }

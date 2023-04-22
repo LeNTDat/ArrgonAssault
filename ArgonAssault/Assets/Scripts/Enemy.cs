@@ -6,15 +6,23 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject EnemyExlode;
     [SerializeField] GameObject HitVFX;
-    [SerializeField] Transform Parent;
-    [SerializeField] int scorePerHit = 15;
-    [SerializeField] int DamagePerHit = 10;
+    [SerializeField] int scorePerObj = 15;
     public int HitPoint;
-    private void OnParticleCollision(GameObject other)
+    Transform Parent;
+    Rigidbody rb;
+
+    void Start()
     {
-        GameObject vFx = Instantiate(HitVFX, transform.position, Quaternion.identity);
-        vFx.transform.parent = Parent;
-        ProcessHit(scorePerHit, DamagePerHit);
+        rb = gameObject.AddComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.isKinematic = true;
+        Parent = GameObject.FindWithTag("SpawnAtRunTime").transform;
+    }
+
+    void OnParticleCollision(GameObject other)
+    {
+        ParticleOnHit();
+        ProcessHit(scorePerObj);
         if (HitPoint <= 0) {
             DestroyEnemy();
         }
@@ -26,11 +34,16 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void ProcessHit(int score, int Damage)
+    public void ProcessHit(int score)
     {
-        
         ScoreManager.instance.IncrementScore(score); 
-        HitPoint -= Damage;
+        HitPoint--;
+    }
+
+    void ParticleOnHit()
+    {
+        GameObject vFx = Instantiate(HitVFX, transform.position, Quaternion.identity);
+        vFx.transform.parent = Parent;
     }
 
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ShipCore
   - VFX
+  - SpawnAtRunTime
   layers:
   - Default
   - TransparentFX

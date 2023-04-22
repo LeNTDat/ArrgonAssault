@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public bool isStart = false;
     public bool isgameOver = false;
-    float loadDelay = 1.5f;
+    float loadDelay = 1.4f;
 
 
     public static GameManager instance;

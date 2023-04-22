@@ -4,25 +4,12 @@ using UnityEngine;
 
 public class SelfDestruct : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    float delayDestroy = 3f;
 
     private void Start()
     {
-        InvokeRepeating("clearChild", 3f, 5f);
+        Destroy(gameObject, delayDestroy);
     }
 
-    private void Update()
-    {
-        
-    }
-    void clearChild () {
-        Transform[] ts = GetComponentsInChildren<Transform>();
-        foreach (var item in ts)
-        {
-            if (item.tag == "VFX")
-            {
-                Destroy(item.gameObject);
-            }
-        }
-    }
 }

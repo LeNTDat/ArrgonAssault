@@ -5,17 +5,15 @@ public class ColliderCheck : MonoBehaviour
     [SerializeField] ParticleSystem ShipExlode;
     [SerializeField] int ShipHitPoint = 5;
     [SerializeField] int ShipScore = 20;
+    Enemy enemy;
 
+    void Start()
+    {
+        enemy = GetComponent<Enemy>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         ExplodeShip();
-        print(other.tag);
-        Enemy enemy = other.GetComponent<Enemy>();
-        enemy.ProcessHit(ShipScore);
-        if ((enemy.HitPoint - ShipHitPoint) <= 0)
-        {
-            enemy.DestroyEnemy();
-        }
     }
 
     void ExplodeShip()

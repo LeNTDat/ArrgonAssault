@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.Burst.Intrinsics.X86;
 
 public class Enemy : MonoBehaviour
 {
@@ -21,9 +22,9 @@ public class Enemy : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
-        ParticleOnHit();
         ProcessHit(scorePerObj);
         if (HitPoint <= 0) {
+            gameObject.GetComponent<AudioSource>().enabled = true;
             DestroyEnemy();
         }
     }
@@ -36,14 +37,10 @@ public class Enemy : MonoBehaviour
 
     public void ProcessHit(int score)
     {
-        ScoreManager.instance.IncrementScore(score); 
-        HitPoint--;
-    }
-
-    void ParticleOnHit()
-    {
         GameObject vFx = Instantiate(HitVFX, transform.position, Quaternion.identity);
         vFx.transform.parent = Parent;
+        ScoreManager.instance.IncrementScore(score); 
+        HitPoint--;
     }
 
 }

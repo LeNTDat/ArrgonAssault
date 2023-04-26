@@ -15,9 +15,9 @@ public class Movement : MonoBehaviour
     [Tooltip("Speed of the ship")][SerializeField] float pitchPositionFactor;
     [Tooltip("Speed of the ship")][SerializeField] float rollPositionFactor;
     [Tooltip("The arrays of lasers appear on ship")][SerializeField] GameObject[] laser;
-
     float inputX, inputY;
-  
+
+
     // Update is called once per frame
     void Update()
     {
@@ -27,10 +27,6 @@ public class Movement : MonoBehaviour
             ProgressMovement();
             ProgressRotation();
         }
-    }
-
-    private void FixedUpdate()
-    {
     }
 
     void ProgressMovement()
@@ -52,7 +48,7 @@ public class Movement : MonoBehaviour
     void ProgressRotation()
     {
         float pitch = (transform.localRotation.y * pitchFactor) + (inputY * pitchPositionFactor);
-        float yaw = transform.localRotation.y + YawPositionFactor;
+        float yaw = transform.localRotation.y + (inputX * YawPositionFactor);
         float roll = (inputX * rollPositionFactor);
 
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
@@ -71,10 +67,12 @@ public class Movement : MonoBehaviour
     }
 
     void ActiveShotting(bool isActive) {
+
         foreach (var item in laser)
         {
+            item.GetComponent<AudioSource>().enabled = isActive;
            var emission = item.GetComponent<ParticleSystem>().emission;
-            emission.enabled = isActive;
+           emission.enabled = isActive;
         }
     }
 }

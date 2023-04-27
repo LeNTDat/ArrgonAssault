@@ -221,6 +221,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4663842106210167804, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663842106210167804, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.28
+      objectReference: {fileID: 0}
     - target: {fileID: 4663842106210167805, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
       propertyPath: CollisionModule.type
       value: 1
@@ -240,6 +248,10 @@ PrefabInstance:
     - target: {fileID: 4663842106210167805, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
       propertyPath: CollisionModule.collisionMessages
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737715822191562726, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4737715822191562727, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
       propertyPath: CollisionModule.type
@@ -319,19 +331,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6797768211085294195, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9990102
+      value: 0.999962
       objectReference: {fileID: 0}
     - target: {fileID: 6797768211085294195, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.008718159
+      value: -0.008726465
       objectReference: {fileID: 0}
     - target: {fileID: 6797768211085294195, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.043617744
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6797768211085294195, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00038064315
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6797768211085294195, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -339,7 +351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6797768211085294195, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6797768211085294195, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -398,6 +410,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9151118778965346208, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
+      propertyPath: YawPositionFactor
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 9151118778965346208, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
       propertyPath: laser.Array.data[0]
       value: 
       objectReference: {fileID: 4557908333716270452}
@@ -405,9 +421,7 @@ PrefabInstance:
       propertyPath: laser.Array.data[1]
       value: 
       objectReference: {fileID: 4487280281268521326}
-    m_RemovedComponents:
-    - {fileID: 2884523810954818402, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
-    - {fileID: 4417069474236655921, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
 --- !u!4 &2353632322838124770 stripped
 Transform:
@@ -446,8 +460,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.9724731, y: 1, z: 6.3061447}
-  m_Center: {x: 0.027191162, y: 0, z: 2.7979164}
+  m_Size: {x: 3.9724731, y: 1, z: 6.1322727}
+  m_Center: {x: 0.027191162, y: 1.5953106e-10, z: 2.8848512}
 --- !u!65 &1299369491
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -515,12 +529,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb71b5434ac2884e8cc6f11ccbdc865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShipExlode: {fileID: 3718890006444533825}
---- !u!198 &3718890006444533825 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5576415983518272208, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}
-  m_PrefabInstance: {fileID: 9151118778494001809}
-  m_PrefabAsset: {fileID: 0}
+  ShipExlode: {fileID: 3200836327345539238, guid: 9aa51c7851dfb144286da578e3923dd1, type: 3}
+  ShipHitPoint: 5
+  ShipScore: 20
 --- !u!1 &4487280281268521326 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4663842106210167807, guid: 3dfd4ace2f6b83f47a674e8ee67eba9e, type: 3}

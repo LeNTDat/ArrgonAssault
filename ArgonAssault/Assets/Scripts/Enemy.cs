@@ -24,14 +24,13 @@ public class Enemy : MonoBehaviour
     {
         ProcessHit(scorePerObj);
         if (HitPoint <= 0) {
-            gameObject.GetComponent<AudioSource>().enabled = true;
             DestroyEnemy();
         }
     }
 
     public void DestroyEnemy() {
-        GameObject VFx = Instantiate(EnemyExlode, transform.position, Quaternion.identity);
-        VFx.transform.parent = Parent;
+        GameObject Fx = Instantiate(EnemyExlode, transform.position, Quaternion.identity);
+        Fx.transform.parent = Parent;
         Destroy(gameObject);
     }
 

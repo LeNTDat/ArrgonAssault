@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 3284206391466940018}
   - component: {fileID: 3284206391466940019}
   - component: {fileID: 3284206391466940016}
+  - component: {fileID: 1906884540}
   m_Layer: 0
   m_Name: Wave-1
   m_TagString: Untagged
@@ -307,6 +308,19 @@ PlayableDirector:
     value: {fileID: 3284206391492888652}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &1906884540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3284206391466940029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d753f16c2807c439d9fbc81ff1e10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayDestroy: 30
 --- !u!1 &3284206391511615748
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,7 +2555,7 @@ MonoBehaviour:
   EnemyExlode: {fileID: 3200836327345539238, guid: da0174752e5374d44ae68537d86e6cb3, type: 3}
   HitVFX: {fileID: 3200836327345539238, guid: d2c744d78799a47488ef7b2f880fbb22, type: 3}
   scorePerObj: 15
-  HitPoint: 5
+  HitPoint: 3
 --- !u!95 &3284206392439574427
 Animator:
   serializedVersion: 5
@@ -3977,7 +3991,7 @@ MonoBehaviour:
   EnemyExlode: {fileID: 3200836327345539238, guid: da0174752e5374d44ae68537d86e6cb3, type: 3}
   HitVFX: {fileID: 3200836327345539238, guid: d2c744d78799a47488ef7b2f880fbb22, type: 3}
   scorePerObj: 15
-  HitPoint: 5
+  HitPoint: 3
 --- !u!95 &3284206391694511594
 Animator:
   serializedVersion: 5
@@ -4414,7 +4428,7 @@ MonoBehaviour:
   EnemyExlode: {fileID: 3200836327345539238, guid: da0174752e5374d44ae68537d86e6cb3, type: 3}
   HitVFX: {fileID: 3200836327345539238, guid: d2c744d78799a47488ef7b2f880fbb22, type: 3}
   scorePerObj: 15
-  HitPoint: 5
+  HitPoint: 3
 --- !u!95 &3284206392955448837
 Animator:
   serializedVersion: 5
@@ -4806,7 +4820,7 @@ MonoBehaviour:
   EnemyExlode: {fileID: 3200836327345539238, guid: da0174752e5374d44ae68537d86e6cb3, type: 3}
   HitVFX: {fileID: 3200836327345539238, guid: d2c744d78799a47488ef7b2f880fbb22, type: 3}
   scorePerObj: 15
-  HitPoint: 5
+  HitPoint: 3
 --- !u!95 &3284206391492888652
 Animator:
   serializedVersion: 5

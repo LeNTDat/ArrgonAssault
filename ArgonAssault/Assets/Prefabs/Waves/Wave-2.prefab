@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 126071285730962606}
   - component: {fileID: 126071285730962605}
+  - component: {fileID: 1081110687}
   m_Layer: 0
   m_Name: Wave-2
   m_TagString: Untagged
@@ -61,6 +62,19 @@ PlayableDirector:
     value: {fileID: 126071287061422479}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &1081110687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126071285730962607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d753f16c2807c439d9fbc81ff1e10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayDestroy: 45
 --- !u!1001 &126071286841864383
 PrefabInstance:
   m_ObjectHideFlags: 0

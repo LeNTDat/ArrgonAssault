@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class ColliderCheck : MonoBehaviour
 {
-    [SerializeField] ParticleSystem ShipExlode;
+    [SerializeField] GameObject ShipExlode;
     [SerializeField] int ShipHitPoint = 5;
     [SerializeField] int ShipScore = 20;
-    Enemy enemy;
+    Transform parent;
 
     void Start()
     {
-        enemy = GetComponent<Enemy>();
+        parent = GameObject.FindWithTag("SpawnAtRunTime").transform;
     }
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         ExplodeShip();
     }
 
-    void ExplodeShip()
+    public void ExplodeShip()
     {
         Transform[] allChildren = GetComponentsInChildren<Transform>();
         foreach (Transform child in allChildren)
@@ -26,7 +26,9 @@ public class ColliderCheck : MonoBehaviour
                 child.GetComponent<MeshRenderer>().enabled = false;
             }
         }
-        ShipExlode.GetComponent<ParticleSystem>().Play();
+        GameObject fx = Instantiate(ShipExlode, transform.position, Quaternion.identity);
+        fx.transform.parent = parent;   
         GameManager.instance.GameOver();
     }
+
 }
